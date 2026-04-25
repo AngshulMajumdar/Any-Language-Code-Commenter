@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "code-commenter-pro"
+version = "0.1.0"
+description = "Safe multi-language dual-LLM repository commenter"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Code Commenter Pro"}]
+keywords = ["llm", "code-comments", "repository", "static-analysis", "colab"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = []
+
+[project.optional-dependencies]
+llm = [
+  "transformers>=4.44",
+  "accelerate>=0.33",
+  "bitsandbytes>=0.43",
+  "sentencepiece>=0.2",
+  "torch>=2.2",
+]
+dev = []
+
+[project.scripts]
+code-commenter = "repo_commenter.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["repo_commenter*"]
